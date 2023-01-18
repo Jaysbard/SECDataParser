@@ -4,7 +4,34 @@ import pathlib
 import collections
 import xml.etree.ElementTree as ET
 
-# define our working directory
+import os
+import sys
+
+
+# get current working directory
+cwd = os.getcwd()
+
+# get all files in current working directory
+files = os.listdir(cwd)
+
+# get all xbrl files in current working directory
+xbrl_files = [f for f in files if f.endswith('.xbrl')]
+
+# get first xbrl file
+xbrl_file = xbrl_files[0]
+
+# parse xbrl file
+xbrl_obj = xbrl.XBRL(xbrl_file)
+
+# get all facts in xbrl file
+facts = xbrl_obj.facts
+
+# get all facts in xbrl file with context ref
+facts_with_context = xbrl_obj.facts_with_context
+
+# get all facts in xbrl file with context ref and unit ref
+facts_with_context_and_unit = xbrl_obj.facts_with_context_and_unit
+
 
 sec_directory = pathlib.Path.cwd().joinpath("apple10K")
 
