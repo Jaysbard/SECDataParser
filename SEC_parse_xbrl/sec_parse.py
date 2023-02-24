@@ -15,7 +15,10 @@ cwd = os.getcwd()
 files = os.listdir(cwd)
 
 # get all xbrl files in current working directory
-xbrl_files = [f for f in files if f.endswith('.xbrl')]
+file_cal = files.joinpath('aapl-20220924_cal.xml').resolve()
+file_lab = files.joinpath('aapl-20220924_lab.xml').resolve()
+file_def = files.joinpath('aapl-20220924_def.xml').resolve()
+file_htm = files.joinpath('aapl-20220924_cal.xml').resolve()
 
 # get first xbrl file
 xbrl_file = xbrl_files[0]
